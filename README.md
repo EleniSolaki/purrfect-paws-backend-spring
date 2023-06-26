@@ -1,4 +1,4 @@
-# AnimalAdoption
+# Purrfect Paws Backend - Spring Boot
 
 This project is a Spring Boot-based backend application, part of a 10-day full-stack application build challenge. You can find the frontend [here](https://github.com/EleniSolaki/purrfect-paws-frontend-angular). This backend provides the core functionality and services for the application.
 
