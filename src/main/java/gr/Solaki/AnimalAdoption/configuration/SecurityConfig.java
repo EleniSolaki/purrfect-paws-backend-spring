@@ -1,4 +1,4 @@
-package gr.Solaki.AnimalAdoption.authentication;
+package gr.Solaki.AnimalAdoption.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
