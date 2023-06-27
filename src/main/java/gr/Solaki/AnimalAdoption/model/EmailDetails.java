@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmailDetails {
 
-
-
     private String recipient;
 
     private String msgBody;

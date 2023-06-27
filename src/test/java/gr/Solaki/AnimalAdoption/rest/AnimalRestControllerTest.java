@@ -3,7 +3,6 @@ package gr.Solaki.AnimalAdoption.rest;
 import gr.Solaki.AnimalAdoption.dto.AnimalDTO;
 import gr.Solaki.AnimalAdoption.model.Animal;
 import gr.Solaki.AnimalAdoption.service.AnimalServiceImpl;
-import gr.Solaki.AnimalAdoption.service.IAnimalService;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ import static org.mockito.Mockito.*;
 class AnimalRestControllerTest {
 
     private AnimalServiceImpl animalService = mock(AnimalServiceImpl.class);
-    private String baseUrl = "http://example:8080/";
+    private String baseUrl = "http://localhost:8080/";
     private AnimalRestController animalRestController = new AnimalRestController(animalService, baseUrl);
 
 

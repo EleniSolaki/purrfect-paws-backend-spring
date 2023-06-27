@@ -28,7 +28,7 @@ class FavoriteAnimalRestControllerTest {
     public void setUp() {
         favoriteAnimalService = mock(IFavoriteAnimalService.class);
         userService = mock(IUserService.class);
-        baseUrl = "http://example:8080/";
+        baseUrl = "http://localhost:8080/";
         favoriteAnimalRestController = new FavoriteAnimalRestController(favoriteAnimalService, userService, baseUrl);
     }
 
