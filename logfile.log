@@ -1,0 +1,10 @@
+Jun 30, 2023 8:18:29 PM gr.Solaki.AnimalAdoption.rest.AnimalRestController getAllAnimalsByBreed
+WARNING: Entity Animal with id 0 does not exist
+Jun 30, 2023 8:25:27 PM gr.Solaki.AnimalAdoption.rest.AnimalRestController getAllAnimalsByAge
+WARNING: Entity Animal with id 0 does not exist
+Jun 30, 2023 8:26:22 PM gr.Solaki.AnimalAdoption.rest.UserRestController saveUser
+WARNING: Email already exists in the database.
+Jun 30, 2023 8:32:30 PM gr.Solaki.AnimalAdoption.rest.ClaimInterestController claimInterest
+INFO: Interest received successfully!
+Jun 30, 2023 8:35:47 PM gr.Solaki.AnimalAdoption.rest.EmailRestController sendMail
+INFO: Email sent successfully

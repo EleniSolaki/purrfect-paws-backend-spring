@@ -5,6 +5,7 @@ import gr.Solaki.AnimalAdoption.model.User;
 import gr.Solaki.AnimalAdoption.repository.UserRepository;
 import gr.Solaki.AnimalAdoption.service.EmailServiceImpl;
 import gr.Solaki.AnimalAdoption.service.IEmailService;
+import gr.Solaki.AnimalAdoption.service.util.LoggerUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -38,7 +39,7 @@ public class EmailRestController {
 
         EmailDetails emailDetails = new EmailDetails(user, details.getMsgBody(), details.getSubject());
         String status = emailService.sendSimpleMail(emailDetails);
-
+        LoggerUtil.getCurrentLogger().info("Email sent successfully");
         return status;
     }
 }

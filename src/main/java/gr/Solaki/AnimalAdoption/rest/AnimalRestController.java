@@ -4,6 +4,7 @@ import gr.Solaki.AnimalAdoption.dto.AnimalDTO;
 import gr.Solaki.AnimalAdoption.model.Animal;
 import gr.Solaki.AnimalAdoption.service.IAnimalService;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityNotFoundException;
+import gr.Solaki.AnimalAdoption.service.util.LoggerUtil;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -53,6 +54,7 @@ public class AnimalRestController {
             }
             return new ResponseEntity<>(animalDTO, HttpStatus.OK);
         }catch (EntityNotFoundException e){
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -75,6 +77,7 @@ public class AnimalRestController {
             }
             return new ResponseEntity<>(dto, HttpStatus.OK);
         } catch (EntityNotFoundException e) {
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -97,6 +100,7 @@ public class AnimalRestController {
             }
             return new ResponseEntity<>(animaldto, HttpStatus.OK);
         } catch (EntityNotFoundException e) {
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -119,6 +123,7 @@ public class AnimalRestController {
             }
             return new ResponseEntity<>(dto, HttpStatus.OK);
         } catch (EntityNotFoundException e) {
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

@@ -6,6 +6,7 @@ import gr.Solaki.AnimalAdoption.model.User;
 import gr.Solaki.AnimalAdoption.service.IUserService;
 import gr.Solaki.AnimalAdoption.response.LoginMessage;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityAlreadyExists;
+import gr.Solaki.AnimalAdoption.service.util.LoggerUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -37,6 +38,7 @@ public ResponseEntity<String> saveUser(@RequestBody UserDTO userDTO) {
         String id = userService.addUser(userDTO);
         return ResponseEntity.ok(id);
     } catch (EntityAlreadyExists e) {
+        LoggerUtil.getCurrentLogger().warning(e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists in the database.");
     }
 }

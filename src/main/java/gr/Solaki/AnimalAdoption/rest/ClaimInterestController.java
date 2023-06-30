@@ -3,6 +3,7 @@ package gr.Solaki.AnimalAdoption.rest;
 import gr.Solaki.AnimalAdoption.model.ClaimInterest;
 import gr.Solaki.AnimalAdoption.service.IClaimInterestService;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityNotFoundException;
+import gr.Solaki.AnimalAdoption.service.util.LoggerUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,6 +36,7 @@ public class ClaimInterestController {
             Object[] result = claimInterestService.getUserEmailAndAnimalName(userId, animalId);
             return new ResponseEntity<>(result, HttpStatus.OK);
         }catch (EntityNotFoundException e){
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
@@ -49,8 +51,10 @@ public class ClaimInterestController {
     public ResponseEntity<Void> claimInterest(@RequestBody ClaimInterest claimInterest) {
         try {
             claimInterestService.saveClaimInterest(claimInterest);
+            LoggerUtil.getCurrentLogger().info("Interest received successfully!");
             return ResponseEntity.ok().build();
         } catch (IllegalStateException e) {
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }

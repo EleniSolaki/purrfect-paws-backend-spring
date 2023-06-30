@@ -7,6 +7,7 @@ import gr.Solaki.AnimalAdoption.service.IFavoriteAnimalService;
 import gr.Solaki.AnimalAdoption.service.IUserService;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityAlreadyExists;
 import gr.Solaki.AnimalAdoption.service.exceptions.EntityNotFoundException;
+import gr.Solaki.AnimalAdoption.service.util.LoggerUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -68,6 +69,7 @@ public class FavoriteAnimalRestController {
             FavoriteAnimalDTO favoriteAnimalDTO = favoriteAnimalService.saveToFavorites(userId, animalId);
             return ResponseEntity.ok(favoriteAnimalDTO);
         }catch (EntityAlreadyExists e){
+            LoggerUtil.getCurrentLogger().warning(e.getMessage());
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
 
