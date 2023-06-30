@@ -12,6 +12,8 @@ Before running the application, you need to configure the database connection se
 
 Clone the repository or download the source code as a ZIP file. Navigate to the project's root directory. Build the application using Maven. 
 
+You first need to create the entities. You can do this from the application.properties by changing `spring.jpa.hibernate.ddl-auto=` to `create`. After creating the entities you can change it again to `update`.
+
 The application contains real life animal information and should be uploaded in the MySql Workbench with the following query: 
 `INSERT INTO animaladoption.animals ( age, breed, description, gender, image, name)
 VALUES ( '3 years old', 'Bombay', 'Playful, obsessed with treats', 'Male', '/images/Spooky.jpg', 'Spooky'),
